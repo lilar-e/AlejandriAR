@@ -7,7 +7,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 interface PDFFile {
   id: number
   name: string
-  size: string
   category: string
   url: string
 }
@@ -80,7 +79,6 @@ export default function PDFList({ pdfFiles }: PDFListProps) {
               <FileText className="w-5 h-5 mr-2 text-blue-500" />
               <div>
                 <p className="font-medium">{file.name}</p>
-                <p className="text-sm text-gray-500">{file.size}</p>
               </div>
             </div>
             {file.url && (
