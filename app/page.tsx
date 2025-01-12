@@ -1,6 +1,7 @@
 import { Montserrat } from 'next/font/google'
 import PDFList from '@/components/PDFList'
 import PDFViewer from '@/components/PDFViewer'
+import { Suspense } from 'react'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -27,7 +28,8 @@ const pdfFiles = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen bg-gray-100">
+    <Suspense>
+      <main className="flex min-h-screen bg-gray-100">
       <div className="w-1/4 p-6 bg-white shadow-lg min-h-screen">
         <h1 className={`${montserrat.className} text-4xl font-bold mb-6 text-gray-800`}>
           Alejandri<span className='gradient-text'>AR</span>
@@ -38,5 +40,6 @@ export default function Home() {
         <PDFViewer />
       </div>
     </main>
+    </Suspense>
 )}
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { FileText, Download } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -46,53 +46,54 @@ export default function PDFList({ pdfFiles }: PDFListProps) {
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Buscar archivos..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full p-2 mb-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <select
-        value={selectedCategory}
-        onChange={(e) => setSelectedCategory(e.target.value)}
-        className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        <option value="all">Todas las Categorías</option>
-        <option value="enfermeria">Enfermería</option>
-        <option value="esi">ESI</option>
-        <option value="cuentos">Cuentos</option>
-      </select>
-      <ul className="space-y-2">
-        {filteredFiles.map((file) => (
-          <li
-            key={file.id}
-            onClick={() => handleFileSelect(file)}
-            className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 ${
-              searchParams.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
-                ? 'bg-blue-100'
-                : ''
-            }`}
-          >
-            <div className="flex items-center">
-              <FileText className="w-5 h-5 mr-2 text-blue-500" />
-              <div>
-                <p className="font-medium">{file.name}</p>
+    <Suspense fallback={<div>Cargando archivos...</div>}>
+      <div>
+        <input
+          type="text"
+          placeholder="Buscar archivos..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full p-2 mb-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="all">Todas las Categorías</option>
+          <option value="enfermeria">Enfermería</option>
+          <option value="esi">ESI</option>
+          <option value="cuentos">Cuentos</option>
+        </select>
+        <ul className="space-y-2">
+          {filteredFiles.map((file) => (
+            <li
+              key={file.id}
+              onClick={() => handleFileSelect(file)}
+              className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 ${
+                searchParams.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
+                  ? 'bg-blue-100'
+                  : ''
+              }`}
+            >
+              <div className="flex items-center">
+                <FileText className="w-5 h-5 mr-2 text-blue-500" />
+                <div>
+                  <p className="font-medium">{file.name}</p>
+                </div>
               </div>
-            </div>
-            {file.url && (
-              <button
-                onClick={(e) => handleDownload(file, e)}
-                className="p-2 text-gray-500 hover:text-blue-500 transition-colors"
-              >
-                <Download className="w-5 h-5" />
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+              {file.url && (
+                <button
+                  onClick={(e) => handleDownload(file, e)}
+                  className="p-2 text-gray-500 hover:text-blue-500 transition-colors"
+                >
+                  <Download className="w-5 h-5" />
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Suspense>
   )
 }
-
