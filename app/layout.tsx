@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import Navigation from '@/components/Navigation'
 import Loading from '@/components/Loading'
 import { useState, useEffect } from 'react'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'] })
 
