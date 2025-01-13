@@ -33,8 +33,8 @@ export default function RootLayout({
             <Navigation />
           </div>
         </header>
-        <SpeedInsights />
         <main>{children}</main>
+        <SpeedInsights />
       </body>
     </html>
   )
