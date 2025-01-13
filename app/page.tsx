@@ -150,9 +150,13 @@ export default function Home() {
           </h1>
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-6">
-              <p className='subtitulo'>Agradecimientos a todos aquell@s qué contribuyen a compartir archivos PDF <br /> Algunos archivos no tienen vista previa, pero puede verlo en la ventana emergente</p> <br />
+              <p className='subtitulo'>Agradecimientos a todos aquell@s qué contribuyen a compartir archivos PDF <br /> Algunos archivos no tienen vista previa, pero puede verlo en la ventana emergente</p>
+              <br />
+              <br />
               <strong className='text-xs'><span className='uppercase'>⚠️ ACTUALIZAMOS PERIODICAMENTE DISCULPAS</span>
-              <br /><span className='uppercase'>⚠️ Mejor rendimiento desde computadoras</span></strong>
+              <br /><span className='uppercase'>⚠️ Mejor rendimiento desde computadoras</span>
+              <br /><a href="https://drive.google.com/file/d/1K8IQtpAnl_ph_LGur1QSqXRpgPRHM5ZD/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className='uppercase linkAyuda'>❗ ¿Quieres colaborar, mira esta guia!</a></strong>
+              <br />
               <br />
               <p className='ultimaActualizacion'> Ultima actualización : 10:12am 13/01/2025</p>
               <br />

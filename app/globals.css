@@ -89,6 +89,18 @@ body {
   text-align-last: justify;
 }
 
+.linkAyuda{
+  color: #3da4f8;
+  text-align-last: justify;
+  width: 100%;
+  transition: 0.5s;
+  font-weight: 800;
+}
+.linkAyuda:hover{
+  color: black;
+  transition: 0.5s;
+}
+
 .ultimaActualizacion{
   font-size: 12px;
   font-weight: 400;
