@@ -47,55 +47,58 @@ export default function PDFList({ pdfFiles }: PDFListProps) {
 
   return (
     <Suspense fallback={<div>Cargando archivos...</div>}>
-      <div>
-        <input
-          type="text"
-          placeholder="Buscar archivos..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-2 mb-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="all">Todas las Categorías</option>
-          <option value="enfermeria">Enfermería</option>
-          <option value="saludmental">Salud Mental</option>
-          <option value="esi">ESI</option>
-          <option value="lgbt">LGBT</option>
-          <option value="cuentos">Cuentos</option>
-        </select>
-        <ul className="space-y-2">
-          {filteredFiles.map((file) => (
-            <li
-              key={file.id}
-              onClick={() => handleFileSelect(file)}
-              className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 ${
-                searchParams.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
-                  ? 'bg-blue-100'
-                  : ''
-              }`}
-            >
-              <div className="flex items-center">
-                <FileText className="w-5 h-5 mr-2 text-blue-500" />
-                <div>
-                  <p className="font-medium">{file.name}</p>
-                </div>
+        <div className="bg-white rounded-lg shadow-md p-4 w-full">
+      <input
+        type="text"
+        placeholder="Buscar archivos..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full p-2 mb-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+      />
+      <select
+        value={selectedCategory}
+        onChange={(e) => setSelectedCategory(e.target.value)}
+        className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+      >
+        <option value="all">Todas las Categorías</option>
+        <option value="enfermeria">Enfermería</option>
+        <option value="esi">ESI</option>
+        <option value="cuentos">Cuentos</option>
+        <option value="LGBTIQ+">LGBT</option>
+        <option value="salud mental">Salud Mental</option>
+      </select>
+      <ul className="space-y-2 max-h-[calc(100vh-300px)] overflow-y-auto w-full">
+        {filteredFiles.map((file) => (
+          <li
+            key={file.id}
+            onClick={() => handleFileSelect(file)}
+            className={`flex items-center justify-between p-2 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 text-sm ${
+              searchParams.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
+                ? 'bg-blue-100'
+                : ''
+            }`}
+          >
+            <div className="flex items-center w-full pr-2">
+              <div className="w-8 flex-shrink-0">
+                <FileText className="w-5 h-5 text-blue-500" />
+              </div>
+              <div className="flex-grow min-w-0 mr-2">
+                <p className="font-medium truncate">{file.name}</p>
+                <p className="text-xs text-gray-500 capitalize">{file.category}</p>
               </div>
               {file.url && (
                 <button
                   onClick={(e) => handleDownload(file, e)}
-                  className="p-2 text-gray-500 hover:text-blue-500 transition-colors"
+                  className="p-1 text-gray-500 hover:text-blue-500 transition-colors flex-shrink-0"
                 >
-                  <Download className="w-5 h-5" />
+                  <Download className="w-4 h-4" />
                 </button>
               )}
-            </li>
-          ))}
-        </ul>
-      </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
     </Suspense>
   )
 }
