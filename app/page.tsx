@@ -35,12 +35,12 @@ const pdfFiles = [
     category: 'cuentos',
     url: 'https://drive.google.com/file/d/1SX8AS34dYCk9gwL_Y_ec80ePzjcSVko-/view?usp=drive_link'
   },
-  // {
-  //   id: 5,
-  //   name: 'Atencion personas trans',
-  //   category: 'LGBTIQ+',
-  //   url: 'https://drive.google.com/file/d/1I5paLW-Vy08izsaKHRBb41g62Z-nvwmT/view?usp=drive_link',
-  // },
+  {
+    id: 5,
+    name: 'La ratita presumida', 
+    category: 'cuentos',
+    url: 'https://drive.google.com/file/d/1pMppKodoqPLm27FCz38NpmfaocKP7L0e/view?usp=sharing'
+  },
   {
     id: 6,
     name: "Cisexismo BA Vacunate 2023",
