@@ -80,3 +80,16 @@ body {
 .gradient-text {
   color: linear-gradient(60deg, #3da4f8, #ffffff);
 }
+
+.subtitulo{
+  font-size: 12px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 315px;
+  text-align-last: justify;
+}
+
+.__className_4bc053{
+  font-size: x-large;
+  text-align: justify;
+}

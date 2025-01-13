@@ -62,7 +62,9 @@ export default function PDFList({ pdfFiles }: PDFListProps) {
         >
           <option value="all">Todas las Categorías</option>
           <option value="enfermeria">Enfermería</option>
+          <option value="saludmental">Salud Mental</option>
           <option value="esi">ESI</option>
+          <option value="lgbt">LGBT</option>
           <option value="cuentos">Cuentos</option>
         </select>
         <ul className="space-y-2">
