@@ -151,9 +151,9 @@ const pdfFiles = [
     }, 
     { 
     id: 24, 
-    name: "Paper Metacognicion 2020.pdf", 
-    category: 'https://drive.google.com/file/d/1nzrX5v65mPen_x5yMfv4ddHfv73hRjgr/view?usp=drive_link', 
-    url: 'enfermeria' 
+    name: "LA METACOGNICIÓN Y LAS HERRAMIENTAS DIDÁCTICAS.pdf", 
+    category: 'docencia', 
+    url: 'https://drive.google.com/file/d/1nzrX5v65mPen_x5yMfv4ddHfv73hRjgr/view?usp=drive_link' 
     }, 
     { 
     id: 25, 
