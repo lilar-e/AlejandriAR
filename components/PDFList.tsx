@@ -65,6 +65,8 @@ export default function PDFList({ pdfFiles }: PDFListProps) {
         <option value="ESI">ESI</option>
         <option value="cuentos">Cuentos Infantiles</option>
         <option value="LGBTIQ+">LGBTIQ+</option>
+        <option value="docencia">Docencia</option>
+        <option value="sociologia">Sociologia</option>
         <option value="salud mental">Salud Mental</option>
       </select>
       <ul className="space-y-2 max-h-[calc(100vh-300px)] overflow-y-auto w-full">

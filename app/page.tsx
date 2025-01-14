@@ -124,8 +124,61 @@ const pdfFiles = [
     name: "Guia de tratamientos hormonales para personas trans",
     category: 'ESI',
     url: 'https://drive.google.com/file/d/1krhKmc8KQpEXCx0fOLjA8PpWD5vB05zE/view?usp=drive_link'
-  }
-
+  },
+  { 
+    id: 20, 
+    name: "Modelos pedagógicos y formación de profesionales en el área de la salud.pdf", 
+    category: 'salud', 
+    url: 'https://drive.google.com/file/d/1F5mlkfMHBAZgh8HLjXk5BkaOPQRfwDx8/view?usp=drive_link' 
+    }, 
+    { 
+    id: 21, 
+    name: "deROBERTIS Biolog�a celular y molecular.pdf", 
+    category: 'enfermeria', 
+    url: 'https://drive.google.com/file/d/1DPndpAmetKmxkAxQwjC64EQ8FPitmpkS/view?usp=sharing' 
+    }, 
+    { 
+    id: 22, 
+    name: "El papel mediador del docente 2020.pdf", 
+    category: 'docencia', 
+    url: 'https://drive.google.com/file/d/1Z42snhhkTHp0aGSnFGJSVoOGrVPtM3m_/view?usp=drive_link' 
+    },
+    { 
+    id: 23, 
+    name: "FUNCIONES DE LOS HOSPITALES .pdf", 
+    category: 'sociologia', 
+    url: 'https://drive.google.com/file/d/1RAC6XOM_rkwvORg18CxrP8-tM77fSTuy/view?usp=drive_link' 
+    }, 
+    { 
+    id: 24, 
+    name: "Paper Metacognicion 2020.pdf", 
+    category: 'https://drive.google.com/file/d/1nzrX5v65mPen_x5yMfv4ddHfv73hRjgr/view?usp=drive_link', 
+    url: 'enfermeria' 
+    }, 
+    { 
+    id: 25, 
+    name: "Paulo Freire - Pedagogia de la esperanza_ un reencuentro con la pedagog�a del oprimido-Siglo XXI (2014).pdf", 
+    category: 'enfermeria', 
+    url: 'https://drive.google.com/file/d/1wqPYNDD6sSZT_hyO8TxZuES5GHJFvIuz/view?usp=drive_link' 
+    }, 
+    { 
+    id: 26, 
+    name: "Perfilando una alternativa.pdf", 
+    category: 'sociologia', 
+    url: 'https://drive.google.com/file/d/1zPiH1EDx-kESGrQu0J_KepzlkyaYyUe1/view?usp=drive_link' 
+    }, 
+    { 
+    id: 27, 
+    name: "Perspectivas cl�sicas y contempor�neas sobre la estratificaci�n social  Aportes de an�lisis de clase y de la perspectiva de las elites para el estudio de los estratos superiores.pdf", 
+    category: 'sociologia', 
+    url: 'https://drive.google.com/file/d/1bB0mEAyQtkDNc_TMxvvomz4NYOfVV1nf/view?usp=drive_link' 
+    }, 
+    { 
+    id: 28, 
+    name: "Reflexion del papel de la enfermeria a lo largo de la historia..pdf", 
+    category: 'enfermeria', 
+    url: 'https://drive.google.com/file/d/1DPndpAmetKmxkAxQwjC64EQ8FPitmpkS/view?usp=sharing' 
+    }, 
 ]
 
 export default function Home() {
