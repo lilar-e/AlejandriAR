@@ -187,7 +187,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000) // 3 seconds minimum loading time
+    }, 800) // 3 seconds minimum loading time
 
     return () => clearTimeout(timer)
   }, [])
@@ -211,7 +211,7 @@ export default function Home() {
               <br /><a href="https://drive.google.com/file/d/1K8IQtpAnl_ph_LGur1QSqXRpgPRHM5ZD/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className='uppercase linkAyuda'>❗ ¿Quieres colaborar, mira esta guia!</a></strong>
               <br />
               <br />
-              <p className='ultimaActualizacion'> Ultima actualización : 10:12am 13/01/2025</p>
+              <p className='ultimaActualizacion'> Ultima actualización : 8:48am 14/01/2025</p>
               <br />
               <PDFList pdfFiles={pdfFiles} />
             </div>
