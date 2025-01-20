@@ -11,8 +11,8 @@ export default function RootLayout({
     <html lang="es">
       <body>
         {children}
-        <Toaster />
         <Analytics />
+        <Toaster />
       </body>
     </html>
   )
