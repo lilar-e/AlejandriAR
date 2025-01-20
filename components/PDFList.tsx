@@ -22,6 +22,7 @@ export default function PDFList({ pdfFiles }: { pdfFiles: PDFFile[] }) {
     (selectedCategory === 'all' || file.category === selectedCategory)
   )
 
+
   const handleFileSelect = (file: PDFFile) => {
     if (file.url) {
       const fileId = file.url.split('/d/')[1]?.split('/')[0]
@@ -79,7 +80,7 @@ export default function PDFList({ pdfFiles }: { pdfFiles: PDFFile[] }) {
               key={file.id}
               onClick={() => handleFileSelect(file)}
               className={`flex items-center justify-between p-2 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 text-sm ${
-                searchParams?.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
+                file.url && searchParams?.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
                   ? 'bg-blue-100'
                   : ''
               }`}

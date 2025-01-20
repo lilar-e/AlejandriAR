@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 
 export default function PDFViewer() {
   const searchParams = useSearchParams()
-  const fileId = searchParams.get('fileId')
+  const fileId = searchParams?.get('fileId')
 
   if (!fileId) {
     return (

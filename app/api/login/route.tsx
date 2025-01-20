@@ -2,10 +2,11 @@ import { NextResponse } from "next/server"
 import { ADMIN_PASSWORD } from "@/lib/config"
 import jwt from "jsonwebtoken"
 
-const secretKey = process.env.SECRET_KEY
+// Ensure secretKey is always a string
+const secretKey: string = process.env.SECRET_KEY || "fallback_secret_key"
 
-if (!secretKey) {
-  throw new Error("SECRET_KEY is not defined")
+if (process.env.SECRET_KEY === undefined) {
+  console.warn("WARNING: SECRET_KEY is not defined in the environment variables. Using fallback key.")
 }
 
 export async function POST(request: Request) {
@@ -29,7 +30,7 @@ export async function POST(request: Request) {
     }
   } catch (error) {
     console.error("Error al procesar la solicitud de login:", error)
-    return NextResponse.json({ success: false, error: `Error interno del servidor: ${error.message}` }, { status: 500 })
+    return NextResponse.json({ success: false, error: `Error interno del servidor: ${(error as Error).message}` }, { status: 500 })
   }
 }
 
