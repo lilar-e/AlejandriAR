@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/toaster"
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 
 export default function RootLayout({
@@ -11,6 +12,7 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   )
