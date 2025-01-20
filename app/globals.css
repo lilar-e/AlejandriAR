@@ -40,6 +40,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -72,6 +73,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -81,7 +83,7 @@ body {
   color: linear-gradient(60deg, #3da4f8, #ffffff);
 }
 
-.subtitulo{
+.subtitulo {
   font-size: 12px;
   font-weight: 400;
   width: 100%;
@@ -89,19 +91,20 @@ body {
   text-align-last: justify;
 }
 
-.linkAyuda{
+.linkAyuda {
   color: #3da4f8;
   text-align-last: justify;
   width: 100%;
   transition: 0.5s;
   font-weight: 800;
 }
-.linkAyuda:hover{
+
+.linkAyuda:hover {
   color: black;
   transition: 0.5s;
 }
 
-.ultimaActualizacion{
+.ultimaActualizacion {
   font-size: 12px;
   font-weight: 400;
   width: 100%;
@@ -109,7 +112,7 @@ body {
   text-align: center;
 }
 
-.__className_4bc053{
+.__className_4bc053 {
   font-size: x-large;
   text-align: justify;
 }
@@ -131,9 +134,14 @@ nav.flex.justify-between.items-center.mb-6 {
 
 nav.flex.justify-between.items-center.mb-6 ul {
   width: 100%;
-    justify-content: space-between;
-    top: -9px;
-    position: relative;
+  justify-content: space-between;
+  top: -9px;
+  position: relative;
+}
+
+li.left-3.li-btn-r {
+  position: relative;
+  left: 0.75rem;
 }
 
 /* haz una media query que empiece en 640px hazte 767*/
@@ -145,23 +153,26 @@ nav.flex.justify-between.items-center.mb-6 ul {
     top: -9px;
     position: relative;
   }
+
   nav.flex.justify-between.items-center.mb-6 {
     width: 100%;
     max-width: 225px;
     justify-content: center;
+  }
 }
-}
+
 @media screen and (min-width: 300px) and (max-width: 766px) {
   h1.__className_4bc053.text-3xl.sm\:text-4xl.md\:text-5xl.font-extrabold.text-transparent.bg-clip-text.bg-gradient-to-r.from-blue-600.to-teal-400 {
     font-size: 2.875rem;
-}
-@media screen and (max-width: 767px) {
-  nav.flex.justify-between.items-center.mb-6 {
+  }
+
+  @media screen and (max-width: 767px) {
+    nav.flex.justify-between.items-center.mb-6 {
       width: 100%;
       max-width: 286px;
       justify-content: center;
       top: 5px;
       position: relative;
+    }
   }
-}
 }
