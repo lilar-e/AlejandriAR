@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { Montserrat } from 'next/font/google'
 import PDFList from '@/components/PDFList'
@@ -23,6 +23,7 @@ export default function HomePage() {
 
 
   return (
+    <Suspense>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <header>
       <h1 className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400`}>
@@ -48,5 +49,6 @@ export default function HomePage() {
         </div>
       </div>
     </div>
+    </Suspense>
   )
 }
