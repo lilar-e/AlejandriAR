@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     'Salud mental',
     'Psiquatria',
     'Como detectar un abuso sexual',
+    'libros',
+    'cuentos',
+    'novelas',
+    'libros en pdf',
+    'pdf libros',
+    'cuentos en pdf',
+    'novelas en pdf',
   ],
   authors: [{ name: 'AlejandriAR', url: 'https://alejandriar.vercel.app/' }],
   robots: {
@@ -33,7 +40,7 @@ export const metadata: Metadata = {
     url: 'https://alejandriar.vercel.app/',
     images: [
       {
-        url: 'https://tu-dominio.com/imagen-relevante.jpg',
+        url: 'https://i.postimg.cc/T3vqdvM1/Captura-de-pantalla-2025-01-21-104634.png',
         alt: 'Vista previa de AlejandriAR',
       },
     ],
@@ -43,6 +50,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AlejandriAR - Materiales Educativos Esenciales',
     description: 'Descubre materiales educativos importantes como guías de ESI y enfermería en AlejandriAR.',
-    images: ['https://tu-dominio.com/imagen-relevante.jpg'],
+    images: ['https://i.postimg.cc/R0QP5VWv/logo.png'],
   },
 };
