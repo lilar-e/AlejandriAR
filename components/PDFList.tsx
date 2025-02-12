@@ -3,22 +3,27 @@
 import { useState } from 'react'
 import { FileText, Download } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { FaBookmark, FaRegBookmark } from 'react-icons/fa'
+import AddBookModal from './AddBookModal'
+import { FiHeart } from 'react-icons/fi'
 
 type PDFFile = {
   id: string;
   name: string;
   category: string;
   url?: string;
+  tags?: string[];
 };
 
-export default function PDFList({ pdfFiles }: { pdfFiles: PDFFile[] }) {
+export default function PDFList({ pdfFiles, favorites, onToggleFavorite }: { pdfFiles: PDFFile[], favorites: string[], onToggleFavorite: (id: string) => void }) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [showAddModal, setShowAddModal] = useState(false)
 
   const filteredFiles = pdfFiles.filter(file =>
-    file.name.toLowerCase().includes(searchTerm.toUpperCase()) &&
+    file.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedCategory === 'all' || file.category === selectedCategory)
   )
 
@@ -52,62 +57,81 @@ export default function PDFList({ pdfFiles }: { pdfFiles: PDFFile[] }) {
     }
   }
 
+  const handleAddBook = async (newBook) => {
+    // Aquí iría la lógica para enviar al backend
+    console.log('Nuevo libro:', newBook)
+    // Actualizar la lista de PDFs
+    // setPdfFiles(prev => [...prev, newBook])
+  }
+
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 w-full">
-      <input
-        type="text"
-        placeholder="Buscar archivos..."
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full p-2 mb-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-      />
-      <select
-        value={selectedCategory}
-        onChange={(e) => setSelectedCategory(e.target.value)}
-        className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-      >
-        {}
-        <option value="all">Todos</option>
-        {Array.from(new Set(pdfFiles.map(file => file.category))).map((category) => (
-          <option key={category} value={category} className='capitalize'>
-            {category}
-          </option>
-        ))}
-      </select>
-      <ul className="space-y-2 max-h-[calc(100vh-300px)] overflow-y-auto w-full">
-        {filteredFiles.length > 0 ? (
-          filteredFiles.map((file) => (
-            <li
-              key={file.id}
-              onClick={() => handleFileSelect(file)}
-              className={`flex items-center justify-between p-2 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 text-sm ${
-                file.url && searchParams?.get('fileId') === file.url.split('/d/')[1]?.split('/')[0]
-                  ? 'bg-blue-100'
-                  : ''
-              }`}
+    <div className="space-y-4">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-white">Documentos</h2>
+        <button
+          onClick={() => setShowAddModal(true)}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+        >
+          Agregar libro
+        </button>
+      </div>
+
+      {pdfFiles.map((pdf) => (
+        <div 
+          key={pdf.id}
+          className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all group bg-white dark:bg-gray-800 relative"
+        >
+          <div className="flex justify-between items-start">
+            <div 
+              className="flex-1 cursor-pointer"
+              onClick={() => handleFileSelect(pdf)}
             >
-              <div className="flex items-center w-full pr-2">
-                <div className="w-8 flex-shrink-0">
-                  <FileText className="w-5 h-5 text-blue-500" />
-                </div>
-                <div className="flex-grow min-w-0 mr-2">
-                  <p className="font-medium truncate">{file.name}</p>
-                  <p className="text-xs text-gray-500 capitalize">{file.category}</p>
-                </div>
-                {file.url && (
-                  <button
-                    onClick={(e) => handleDownload(file, e)}
-                    className="p-1 text-gray-500 hover:text-blue-500 transition-colors flex-shrink-0"
-                  >
-                    <Download className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
-            </li>
-          ))
-        ) : (
-          <li className="text-center text-gray-500">No se encontraron archivos</li>
-        )}
-      </ul>
+              <h3 className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                {pdf.name}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                {pdf.category}
+              </p>
+            </div>
+            <button
+              onClick={() => onToggleFavorite(pdf.id)}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors z-10"
+              aria-label={favorites.includes(pdf.id) ? "Quitar de favoritos" : "Agregar a favoritos"}
+            >
+              <FiHeart 
+                className={`h-5 w-5 ${
+                  favorites.includes(pdf.id) 
+                    ? 'text-red-500 fill-current' 
+                    : 'text-gray-400 dark:text-gray-500'
+                }`}
+              />
+            </button>
+          </div>
+
+          {pdf.tags && pdf.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-2">
+              {pdf.tags.map((tag) => (
+                <span 
+                  key={tag}
+                  className="text-xs px-2 py-1 rounded-full bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-200"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Indicador visual de que es clickeable */}
+          <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500 rounded-lg transition-colors" />
+        </div>
+      ))}
+
+      {showAddModal && (
+        <AddBookModal
+          onAdd={handleAddBook}
+          onClose={() => setShowAddModal(false)}
+        />
+      )}
     </div>
   )
 }

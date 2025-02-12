@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'AlejandriAR - Materiales Educativos Esenciales',
-  description: 'Accede a materiales educativos como Educación Sexual Integral, guías de enfermería, primeros auxilios, y más.',
+  description: 'Accede a materiales educativos gratuitos: Educación Sexual Integral (ESI), guías de enfermería, primeros auxilios, recursos LGBT, salud mental y más. Biblioteca digital con PDFs educativos de calidad.',
   keywords: [
     'Educación Sexual Integral',
     'ESI',
@@ -25,9 +25,17 @@ export const metadata: Metadata = {
     'cuentos',
     'novelas',
     'libros en pdf',
-    'pdf libros',
+    'pdf libros', 
     'cuentos en pdf',
     'novelas en pdf',
+    'biblioteca digital',
+    'recursos educativos gratuitos',
+    'material didáctico',
+    'guías de estudio',
+    'recursos académicos',
+    'biblioteca virtual',
+    'material de consulta',
+    'recursos para estudiantes',
   ],
   authors: [{ name: 'AlejandriAR', url: 'https://alejandriar.vercel.app/' }],
   robots: {
@@ -42,9 +50,13 @@ export const metadata: Metadata = {
       {
         url: 'https://i.postimg.cc/T3vqdvM1/Captura-de-pantalla-2025-01-21-104634.png',
         alt: 'Vista previa de AlejandriAR',
+        width: 1200,
+        height: 630,
       },
     ],
     type: 'website',
+    locale: 'es_AR',
+    siteName: 'AlejandriAR',
   },
   twitter: {
     card: 'summary_large_image',
@@ -52,4 +64,18 @@ export const metadata: Metadata = {
     description: 'Descubre materiales educativos importantes como guías de ESI y enfermería en AlejandriAR.',
     images: ['https://i.postimg.cc/R0QP5VWv/logo.png'],
   },
+  icons: {
+    icon: '📚',
+    apple: '📚',
+  },
+  manifest: '/manifest.json',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: 'YOUR_VERIFICATION_CODE_HERE',
+  },
 };
+

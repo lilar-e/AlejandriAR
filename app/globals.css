@@ -2,14 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    font-size: 15px;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer base {
@@ -66,6 +82,7 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    color-scheme: dark;
   }
 }
 
@@ -197,5 +214,24 @@ li.left-3.li-btn-r {
     justify-content: space-between;
     top: -9px;
     position: relative;
+  }
+}
+
+/* Tooltips */
+.tooltip-button {
+  @apply p-2 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-full transition-colors relative;
+}
+
+.tooltip-button[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 
+    text-xs text-white bg-gray-800 dark:bg-gray-900 rounded whitespace-nowrap
+    opacity-0 transition-opacity duration-200;
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

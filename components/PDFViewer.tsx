@@ -1,27 +1,38 @@
-'use client'
+import { FiX } from 'react-icons/fi';
 
-import { useSearchParams } from 'next/navigation'
+type PDFViewerProps = {
+  url: string; // URL del archivo PDF
+  onClose: () => void;
+  title?: string;
+};
 
-export default function PDFViewer() {
-  const searchParams = useSearchParams()
-  const fileId = searchParams?.get('fileId')
-
-  if (!fileId) {
-    return (
-      <div className="h-[calc(100vh-200px)] sm:h-[calc(100vh-250px)] flex items-center justify-center bg-white rounded-lg shadow-lg">
-        <p className="text-gray-500 text-sm sm:text-base">Selecciona un PDF para visualizar</p>
-      </div>
-    )
-  }
+export default function PDFViewer({ url, onClose, title }: PDFViewerProps) {
+  const googleDriveViewerUrl = `${url}/preview`; // Construir la URL del Google Drive Viewer
 
   return (
-    <div className="h-[calc(100vh-200px)] sm:h-[calc(100vh-250px)] bg-white rounded-lg shadow-lg overflow-hidden">
-      <iframe
-        src={`https://drive.google.com/file/d/${fileId}/preview`}
-        className="w-full h-full"
-        allow="autoplay"
-      />
-    </div>
-  )
-}
+    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
+      <div className="h-full max-w-6xl mx-auto px-4 py-6 flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-medium text-white truncate">{title}</h2>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+          >
+            <FiX className="w-6 h-6" />
+          </button>
+        </div>
 
+        {/* PDF Viewer */}
+        <iframe
+          src={googleDriveViewerUrl}
+          width="100%"
+          height="600px"
+          className="rounded-lg"
+          allow="autoplay"
+          title={title}
+        />
+      </div>
+    </div>
+  );
+}
