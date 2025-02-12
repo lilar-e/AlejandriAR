@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react'
 import { FiX, FiSearch, FiClock, FiTag } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
+type Book = {
+  id: string
+  title: string
+  author: string
+  url: string
+  coverUrl?: string
+}
+
 type SearchBarProps = {
   onClose: () => void
   onSearch: (query: string) => void
@@ -107,7 +115,7 @@ export default function SearchBar({ onClose, onSearch, searchResults }: SearchBa
                     className="p-4 border border-gray-200 rounded-lg shadow-md bg-white dark:bg-gray-800"
                   >
                     <img 
-                      src={book.coverUrl || getThumbnailUrl(book.url)} 
+                      src={book.coverUrl || getThumbnailUrl(book.url) || ''} 
                       alt={book.title} 
                       className="w-full h-32 object-cover rounded-md mb-2"
                     />

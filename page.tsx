@@ -40,10 +40,10 @@ export default function HomePage() {
       </header>
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-6">
-          <PDFList pdfFiles={pdfFiles} />
+          <PDFList pdfFiles={pdfFiles} favorites={[]} onToggleFavorite={() => {}} />
         </div>
         <div className="w-full md:w-3/4">
-          <PDFViewer />
+          <PDFViewer url="" onClose={() => {}} />
         </div>
       </div>
     </div>

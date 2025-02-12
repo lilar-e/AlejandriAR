@@ -31,7 +31,7 @@ export default function BookCard({ book, isFavorite, onFavorite, onClick }: Book
   return (
     <div className="relative group animate-fadeIn">
       <div 
-        onClick={() => onClick(getDownloadUrl(book.url))}
+        onClick={() => onClick(getDownloadUrl(book.url) || '')}
         className="aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white dark:bg-gray-800"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 dark:from-black/10 dark:to-black/5 backdrop-blur-sm group-hover:backdrop-blur-md transition-all duration-300" />
@@ -40,7 +40,7 @@ export default function BookCard({ book, isFavorite, onFavorite, onClick }: Book
         <div className="absolute inset-0">
           {book.coverUrl || getThumbnailUrl(book.url) ? (
             <Image
-              src={book.coverUrl || getThumbnailUrl(book.url)}
+              src={book.coverUrl || getThumbnailUrl(book.url) || ''}
               alt={book.title}
               fill
               className="object-cover"
