@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'AlejandriAR - Materiales Educativos Esenciales',
+  title: 'AlejandriAR - La biblioteca de novelas y recursos PDF',
   description: 'Accede a materiales educativos gratuitos: Educación Sexual Integral (ESI), guías de enfermería, primeros auxilios, recursos LGBT, salud mental y más. Biblioteca digital con PDFs educativos de calidad.',
   keywords: [
     'Educación Sexual Integral',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     url: 'https://alejandriar.vercel.app/',
     images: [
       {
-        url: 'https://i.postimg.cc/T3vqdvM1/Captura-de-pantalla-2025-01-21-104634.png',
+        url: 'https://i.postimg.cc/WsZT1cT4/Captura-de-pantalla-2025-02-12-112506.png',
         alt: 'Vista previa de AlejandriAR',
         width: 1200,
         height: 630,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AlejandriAR - Materiales Educativos Esenciales',
     description: 'Descubre materiales educativos importantes como guías de ESI y enfermería en AlejandriAR.',
-    images: ['https://i.postimg.cc/R0QP5VWv/logo.png'],
+    images: ['https://i.postimg.cc/WsZT1cT4/Captura-de-pantalla-2025-02-12-112506.png'],
   },
   icons: {
     icon: '📚',
@@ -73,9 +73,6 @@ export const metadata: Metadata = {
     width: 'device-width',
     initialScale: 1,
     maximumScale: 1,
-  },
-  verification: {
-    google: 'YOUR_VERIFICATION_CODE_HERE',
-  },
+  }
 };
 
